@@ -1,12 +1,12 @@
 # ShapeImageView
-![ICON](https://github.com/AlexMofer/ProjectX/blob/master/shapeimageview/icon.png)
+![ICON](https://raw.githubusercontent.com/AlexMofer/ProjectX/master/shapeimageview/icon.png)
 
 项目详细地址：[**ProjectX**](https://github.com/AlexMofer/ProjectX/tree/master/shapeimageview)(方便统一管理)
 
 图形裁剪ImageView，API 21 及以上 使用 setOutlineProvider 方式实现，支持动态图；以下使用 BitmapShader 方式实现。
 支持固定高宽缩放比缩放，支持前景Drawable，支持ImageView的所有ScaleType，且API 21具备更高性能。
 ## 预览
-![Screenshots](https://github.com/AlexMofer/ProjectX/blob/master/shapeimageview/screenshots.gif)
+![Screenshots](https://raw.githubusercontent.com/AlexMofer/ProjectX/master/shapeimageview/screenshots.gif)
 ## 要求
 minSdkVersion 4
 ## 引用
