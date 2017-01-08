@@ -7,7 +7,6 @@ import android.widget.ImageView;
 import android.widget.RadioGroup;
 import android.widget.SeekBar;
 
-import am.widget.shapeimageview.RoundRectImageShape;
 import am.widget.shapeimageview.ShapeImageView;
 
 public class ShapeImageViewActivity extends BaseActivity
@@ -97,7 +96,8 @@ public class ShapeImageViewActivity extends BaseActivity
                 break;
             case R.id.siv_sb_radius:
                 float radius = progress * getResources().getDisplayMetrics().density;
-                ((RoundRectImageShape) sivRoundRect.getImageShape()).setRadius(radius);
+                sivCircle.setRoundRectRadius(radius);
+                sivRoundRect.setRoundRectRadius(radius);
                 break;
             case R.id.siv_sb_padding:
                 int padding = (int) (progress * getResources().getDisplayMetrics().density);
