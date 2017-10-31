@@ -19,6 +19,7 @@ ViewOutlineProvider) 方式实现，API 18 及以上 使用 Canvas.clipPath(Path
 Drawable，支持ImageView的所有ScaleType。
 
 **属性及方法说明**
+
 xml布局属性|属性值|对应方法|说明
 ---|---|---|---
 custom:sivShape|Circle、RoundRect|void setImageShape(ImageShape shape)|设置图像形状
