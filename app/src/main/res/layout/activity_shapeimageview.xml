@@ -1,38 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
+    android:orientation="vertical"
     tools:context=".ShapeImageViewActivity">
 
-    <android.support.design.widget.AppBarLayout
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/siv_toolbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:theme="@style/AppBarOverlay">
-
-        <android.support.v7.widget.Toolbar
-            android:id="@+id/siv_toolbar"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-            <TextView
-                style="@style/ToolbarTitle"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:text="@string/shapeimageview_titel" />
-
-        </android.support.v7.widget.Toolbar>
-    </android.support.design.widget.AppBarLayout>
+        app:title="@string/shapeimageview_titel"/>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        android:padding="5dp"
-        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+        android:padding="5dp">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -47,6 +33,7 @@
                 android:layout_margin="5dp"
                 android:layout_weight="1"
                 android:clickable="true"
+                android:focusable="true"
                 android:scaleType="centerCrop"
                 android:src="@drawable/bg_welcome"
                 app:sivBorderColor="@color/colorAccent"
@@ -64,6 +51,7 @@
                 android:layout_margin="5dp"
                 android:layout_weight="1"
                 android:clickable="true"
+                android:focusable="true"
                 android:scaleType="centerCrop"
                 android:src="@drawable/bg_welcome"
                 app:sivBorderColor="@color/colorAccent"
@@ -211,4 +199,4 @@
 
     </LinearLayout>
 
-</android.support.design.widget.CoordinatorLayout>
+</LinearLayout>

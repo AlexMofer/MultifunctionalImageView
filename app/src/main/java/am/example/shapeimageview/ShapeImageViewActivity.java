@@ -1,7 +1,10 @@
 package am.example.shapeimageview;
 
 import android.os.Bundle;
+import android.support.annotation.Nullable;
 import android.support.v4.content.ContextCompat;
+import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.RadioGroup;
@@ -9,7 +12,7 @@ import android.widget.SeekBar;
 
 import am.widget.shapeimageview.ShapeImageView;
 
-public class ShapeImageViewActivity extends BaseActivity
+public class ShapeImageViewActivity extends AppCompatActivity
         implements View.OnClickListener, SeekBar.OnSeekBarChangeListener,
         RadioGroup.OnCheckedChangeListener {
 
@@ -18,36 +21,43 @@ public class ShapeImageViewActivity extends BaseActivity
     private RadioGroup rgScaleType1, rgScaleType2;
 
     @Override
-    protected int getContentViewLayoutResources() {
-        return R.layout.activity_shapeimageview;
-    }
-
-    @Override
-    @SuppressWarnings("all")
-    protected void initResource(Bundle savedInstanceState) {
-        setSupportActionBar(R.id.siv_toolbar);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(false);
-        sivCircle = (ShapeImageView) findViewById(R.id.siv_image_c);
-        sivRoundRect = (ShapeImageView) findViewById(R.id.siv_image_r);
+    protected void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_shapeimageview);
+        Toolbar mToolbar = findViewById(R.id.siv_toolbar);
+        if (mToolbar != null) {
+            setSupportActionBar(mToolbar);
+            mToolbar.setNavigationOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    onBackPressed();
+                }
+            });
+            if (getSupportActionBar() != null) {
+                getSupportActionBar().setDisplayHomeAsUpEnabled(false);
+            }
+        }
+        sivCircle = findViewById(R.id.siv_image_c);
+        sivRoundRect = findViewById(R.id.siv_image_r);
         sivCircle.setOnClickListener(this);
         sivRoundRect.setOnClickListener(this);
         sivCircle.setTag(true);
         sivRoundRect.setTag(true);
-        SeekBar sbHeight = (SeekBar) findViewById(R.id.siv_sb_height);
+        SeekBar sbHeight = findViewById(R.id.siv_sb_height);
         sbHeight.setOnSeekBarChangeListener(this);
         sbHeight.setProgress(0);
-        SeekBar sbBorder = (SeekBar) findViewById(R.id.siv_sb_border);
+        SeekBar sbBorder = findViewById(R.id.siv_sb_border);
         sbBorder.setOnSeekBarChangeListener(this);
         sbBorder.setProgress(2);
-        SeekBar sbRadius = (SeekBar) findViewById(R.id.siv_sb_radius);
+        SeekBar sbRadius = findViewById(R.id.siv_sb_radius);
         sbRadius.setOnSeekBarChangeListener(this);
         sbRadius.setProgress(10);
-        SeekBar sbPadding = (SeekBar) findViewById(R.id.siv_sb_padding);
+        SeekBar sbPadding = findViewById(R.id.siv_sb_padding);
         sbPadding.setOnSeekBarChangeListener(this);
         sbPadding.setProgress(0);
-        rgScaleType1 = (RadioGroup) findViewById(R.id.siv_rg_st1);
+        rgScaleType1 = findViewById(R.id.siv_rg_st1);
         rgScaleType1.setOnCheckedChangeListener(this);
-        rgScaleType2 = (RadioGroup) findViewById(R.id.siv_rg_st2);
+        rgScaleType2 = findViewById(R.id.siv_rg_st2);
         rgScaleType2.setOnCheckedChangeListener(this);
         rgScaleType1.check(R.id.siv_rb_centercrop);
     }
