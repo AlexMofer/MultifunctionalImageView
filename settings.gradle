@@ -1,1 +1,3 @@
+rootProject.name = "MultifunctionalImageView"
 include ':app'
+include ':multifunctionalimageview'
